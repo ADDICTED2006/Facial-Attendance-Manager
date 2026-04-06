@@ -127,6 +127,7 @@ public class FaceDetector implements Runnable {
 		try {
 			new Thread(this).start();
 		} catch (Exception e) {
+			e.printStackTrace();
 			if (exception == null) {
 				exception = e;
 

@@ -46,9 +46,15 @@ public class FaceRecognizer {
 		};
 
 		File[] imageFiles = root.listFiles(imgFilter);
+		
+		this.faceRecognizer = createLBPHFaceRecognizer();
+		
+		if (imageFiles == null || imageFiles.length == 0) {
+			System.out.println("No faces found in database. Skipping OpenCV training.");
+			return;
+		}
 
 		this.images = new MatVector(imageFiles.length);
-
 		this.labels = new Mat(imageFiles.length, 1, CV_32SC1);
 		IntBuffer labelsBuf = labels.createBuffer();
 
@@ -57,22 +63,13 @@ public class FaceRecognizer {
 
 		for (File image : imageFiles) {
 			Mat img = imread(image.getAbsolutePath(), CV_LOAD_IMAGE_GRAYSCALE);
-
 			int label = Integer.parseInt(image.getName().split("\\-")[0]);
-
 			images.put(counter, img);
-
 			labelsBuf.put(counter, label);
-
 			counter++;
 		}
-
-		this.faceRecognizer = createLBPHFaceRecognizer();
 		
-		// Prevent OpenCV crash if database is completely empty (0 faces)
-		if (imageFiles.length > 0) {
-			this.faceRecognizer.train(images, labels);
-		}
+		this.faceRecognizer.train(images, labels);
 
 	}
 
