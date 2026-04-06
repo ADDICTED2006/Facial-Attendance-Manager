@@ -22,6 +22,10 @@ public class Main extends Application {
 			primaryStage.getIcons().add(new Image("logo.png"));
 	        primaryStage.setTitle("Attendance Management System");
 			primaryStage.setScene(scene);
+			primaryStage.setOnCloseRequest(event -> {
+				javafx.application.Platform.exit();
+				System.exit(0);
+			});
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
