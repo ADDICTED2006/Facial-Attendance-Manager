@@ -1,37 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController" style="-fx-background-color: #2b2b2b;">
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1350.0" spacing="0.0" style="-fx-background-color: #f0f4f8;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginController">
    <children>
-      <Label text="Facial Attendance System" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <Label text="Sign In to Continue" textFill="#a1a1a1">
-         <font>
-            <Font size="14.0" />
-         </font>
-         <VBox.margin>
-            <Insets bottom="10.0" />
-         </VBox.margin>
-      </Label>
-      <TextField fx:id="usernameField" maxWidth="250.0" promptText="Username" style="-fx-background-color: #444; -fx-text-fill: white;" />
-      <PasswordField fx:id="passwordField" maxWidth="250.0" promptText="Password" style="-fx-background-color: #444; -fx-text-fill: white;" />
-      <ComboBox fx:id="roleCombo" maxWidth="250.0" promptText="Select Role" style="-fx-background-color: #555;" />
-      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#handleLogin" prefWidth="250.0" style="-fx-background-color: #0078d7; -fx-text-fill: white; -fx-font-weight: bold;" text="LOGIN">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </Button>
-      <Label fx:id="errorLabel" textFill="#ff5c5c" />
+      <VBox alignment="CENTER" maxWidth="450.0" spacing="25.0" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 20, 0, 0, 5);">
+         <children>
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label text="Facial Attendance" textFill="#202124">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label text="Sign in to your account" textFill="#5f6368">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </VBox>
+            
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="Username" textFill="#5f6368">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usernameField" prefHeight="45.0" promptText="Enter username" style="-fx-background-color: #f8f9fa; -fx-border-color: #dadce0; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 10;" />
+               </children>
+            </VBox>
+            
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="Password" textFill="#5f6368">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordField" prefHeight="45.0" promptText="Enter password" style="-fx-background-color: #f8f9fa; -fx-border-color: #dadce0; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 10;" />
+               </children>
+            </VBox>
+            
+            <VBox spacing="8.0">
+               <children>
+                  <Label text="Role Identity" textFill="#5f6368">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="roleCombo" prefHeight="45.0" prefWidth="400.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #dadce0; -fx-border-radius: 6; -fx-background-radius: 6;" />
+               </children>
+            </VBox>
+            
+            <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#handleLogin" prefHeight="45.0" prefWidth="400.0" style="-fx-background-color: #1a73e8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Continue">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            
+            <Label fx:id="errorLabel" textFill="#d93025" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="50.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-   </padding>
 </VBox>
