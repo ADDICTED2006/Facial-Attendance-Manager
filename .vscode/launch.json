@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Face Attendance System",
+            "request": "launch",
+            "mainClass": "application.Main",
+            "projectName": "GhostEyeFX"
+        }
+    ]
+}
