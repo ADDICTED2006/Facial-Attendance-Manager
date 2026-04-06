@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminController" style="-fx-background-color: #f4f6f9;">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #2b2b2b;">
+         <children>
+            <Label text="Admin Dashboard - Facial Attendance" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #ff5c5c; -fx-text-fill: white;" text="Logout">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox spacing="20.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-background-radius: 10;">
+               <children>
+                  <Label text="Total Registered Students" textFill="#888888">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalStudentsLabel" text="0" textFill="#2b2b2b">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-background-radius: 10;">
+               <children>
+                  <Label text="Today's Attendance" textFill="#888888">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="todayAttendanceLabel" text="0" textFill="#0078d7">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="150.0" prefWidth="300.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-background-radius: 10;">
+               <children>
+                  <Label text="System Status" textFill="#888888">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="ONLINE" textFill="#28a745">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="Register Student">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="32.0" layoutY="28.0" text="Student Registration is currently handled via Teacher Kiosk Settings." textFill="#666666">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Attendance Reports">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="33.0" layoutY="31.0" text="Detailed reports will appear here based on the 'attendance' table logs." textFill="#666666">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+            </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </VBox.margin>
+      </TabPane>
+   </children>
+</VBox>
