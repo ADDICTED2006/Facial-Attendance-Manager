@@ -127,10 +127,10 @@ public class FaceDetector implements Runnable {
 		try {
 			new Thread(this).start();
 		} catch (Exception e) {
+			try { java.nio.file.Files.write(java.nio.file.Paths.get("crash_log.txt"), (e.toString() + "\n" + java.util.Arrays.toString(e.getStackTrace())).getBytes()); } catch(Exception ex){}
 			e.printStackTrace();
 			if (exception == null) {
 				exception = e;
-
 			}
 		}
 	}
