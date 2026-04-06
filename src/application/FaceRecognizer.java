@@ -69,8 +69,10 @@ public class FaceRecognizer {
 
 		this.faceRecognizer = createLBPHFaceRecognizer();
 		
-		
-		this.faceRecognizer.train(images, labels);
+		// Prevent OpenCV crash if database is completely empty (0 faces)
+		if (imageFiles.length > 0) {
+			this.faceRecognizer.train(images, labels);
+		}
 
 	}
 
@@ -82,8 +84,14 @@ public class FaceRecognizer {
 
 		IntPointer label = new IntPointer(1);
 		DoublePointer confidence = new DoublePointer(0);
-		 
-		this.faceRecognizer.predict(faces, label, confidence);
+		
+		// Prevent OpenCV crash if trying to predict on an untrained system
+		try {
+			this.faceRecognizer.predict(faces, label, confidence);
+		} catch (Exception e) {
+			int [] arr = {-1,0};
+			return arr;
+		}
 		
 		int predictedLabel = label.get(0);
 			
